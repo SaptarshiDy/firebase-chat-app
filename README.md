@@ -1,5 +1,3 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
-
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
@@ -69,8 +67,9 @@ Now that you have successfully run the app, let's modify it.
 
 ## Congratulations! :tada:
 
-You've successfully run and modified your React Native App. :partying_face:
+Welcome to Firebase Chat App. :partying_face:
+
 
 <p align="center">
-  Made By <a href="https://github.com/SaptarshiDy" target="_blank">Introduction</a>
+  Made By <a href="https://github.com/SaptarshiDy" target="_blank">Saptarshi Dey</a>
 </p>
