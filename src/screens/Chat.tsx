@@ -4,8 +4,7 @@ import { GiftedChat, Bubble, InputToolbar, MessageContainer, Day } from 'react-n
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import axios from 'axios';
 import firestore from '@react-native-firebase/firestore';
-import uuid from 'react-native-uuid';
-import { firebaseServerKey } from '../../app.json';
+import { FIREBASE_SERVER_KEY } from '../../config';
 
 const Chat = ({ route, navigation }: any) => {
 
@@ -73,7 +72,7 @@ const Chat = ({ route, navigation }: any) => {
             url: 'https://fcm.googleapis.com/fcm/send',
             headers: {
                 Authorization:
-                    'key='+firebaseServerKey,
+                    'key='+FIREBASE_SERVER_KEY,
                     'Content-Type': 'application/json',
             },
             data: data,

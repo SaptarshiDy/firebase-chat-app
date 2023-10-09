@@ -66,5 +66,5 @@ yarn-error.log
 /coverage
 
 # Custom
-app.json
+config.ts
 android/app/google-services.json
