@@ -1,4 +1,3 @@
-import { useFocusEffect } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { ActivityIndicator, Image, Pressable, Text, View } from 'react-native';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
@@ -63,9 +62,7 @@ const ChatList = ({ navigation }: any) => {
                                 </View>
                         }
                     </View>
-
             }
-
         </View>
     );
 }
