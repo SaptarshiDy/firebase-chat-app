@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import axios from 'axios';
 import firestore from '@react-native-firebase/firestore';
 import { FIREBASE_SERVER_KEY } from '../../config';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const Chat = ({ route, navigation }: any) => {
 
@@ -72,70 +73,92 @@ const Chat = ({ route, navigation }: any) => {
             url: 'https://fcm.googleapis.com/fcm/send',
             headers: {
                 Authorization:
-                    'key='+FIREBASE_SERVER_KEY,
-                    'Content-Type': 'application/json',
+                    'key=' + FIREBASE_SERVER_KEY,
+                'Content-Type': 'application/json',
             },
             data: data,
         };
 
         await axios(config)
-        .then(function (response) {
-            // console.warn(JSON.stringify(response.data));
-        })
-        .catch(function (error) {
-            console.warn(error);
-        });
+            .then(function (response) {
+                // console.warn(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.warn(error);
+            });
 
     }
 
     return (
+        <View className='flex-1'>
+            <View className='flex flex-row items-center shadow p-2 gap-x-2 bg-white'>
+                <View className='mb-1'>
+                    <Icon name="arrowleft" size={30} color="#900" />
+                </View>
+                <View className='border rounded-full'>
+                    <Image
+                        style={{
+                            width: 30,
+                            height: 30,
+                            borderRadius: 50,
+                        }}
+                        source={{
+                            uri: user.photo,
+                        }}
+                    />
+                </View>
+                <Text className='text-lg font-medium'>
+                    {user.name}
+                </Text>
+            </View>
 
-        <GiftedChat
-            messages={messages}
-            onSend={messages => onSend(messages)}
-            user={{
-                _id: auth.user.id,
-                name: auth.user.name,
-                avatar: auth.user.photo,
-            }}
-            isLoadingEarlier={true}
+            <GiftedChat
+                messages={messages}
+                onSend={messages => onSend(messages)}
+                user={{
+                    _id: auth.user.id,
+                    name: auth.user.name,
+                    avatar: auth.user.photo,
+                }}
+                isLoadingEarlier={true}
 
-            renderChatEmpty={() => {
-                return (
-                    <View className='flex justify-center item-center h-screen'>
-                        <Text className='text-center rotate-180'>
-                            No Message Found !
-                        </Text>
-                    </View>
-                );
-            }}
+                renderChatEmpty={() => {
+                    return (
+                        <View className='flex justify-center item-center h-screen'>
+                            <Text className='text-center rotate-180'>
+                                No Message Found !
+                            </Text>
+                        </View>
+                    );
+                }}
 
-            renderAvatarOnTop={true}
+                renderAvatarOnTop={true}
 
-            renderBubble={(props) => {
-                return (
-                    <Bubble
-                        {...props}
-                        wrapperStyle={{
-                            left: {
+                renderBubble={(props) => {
+                    return (
+                        <Bubble
+                            {...props}
+                            wrapperStyle={{
+                                left: {
+                                    backgroundColor: 'white',
+                                },
+                            }}
+                        />
+                    );
+                }}
+                renderInputToolbar={(props) => {
+                    return (
+                        <InputToolbar
+                            {...props}
+                            containerStyle={{
                                 backgroundColor: 'white',
-                            },
-                        }}
-                    />
-                );
-            }}
-            renderInputToolbar={(props) => {
-                return (
-                    <InputToolbar
-                        {...props}
-                        containerStyle={{
-                            backgroundColor: 'white',
-                        }}
-                    />
-                );
-            }}
+                            }}
+                        />
+                    );
+                }}
 
-        />
+            />
+        </View>
     );
 }
 
