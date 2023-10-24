@@ -1,11 +1,11 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { Image, ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import { GiftedChat, Bubble, InputToolbar, MessageContainer, Day } from 'react-native-gifted-chat'
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import axios from 'axios';
 import firestore from '@react-native-firebase/firestore';
 import { FIREBASE_SERVER_KEY } from '../../config';
-import Icon from 'react-native-vector-icons/AntDesign';
+import Icon from 'react-native-vector-icons/Feather';
 
 const Chat = ({ route, navigation }: any) => {
 
@@ -92,8 +92,14 @@ const Chat = ({ route, navigation }: any) => {
     return (
         <View className='flex-1'>
             <View className='flex flex-row items-center shadow p-2 gap-x-2 bg-white'>
-                <View className='mb-1'>
-                    <Icon name="arrowleft" size={30} color="#900" />
+                <View className='mb-0'>
+                    <Pressable
+                        onPress={() => {
+                            navigation.goBack();
+                        }}
+                    >
+                        <Icon name="arrow-left" size={30} color="#900" />
+                    </Pressable>
                 </View>
                 <View className='border rounded-full'>
                     <Image
