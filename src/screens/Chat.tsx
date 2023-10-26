@@ -65,6 +65,7 @@ const Chat = ({ route, navigation }: any) => {
                 title: data.username,
                 body: data.message,
                 avatar: data.image,
+                data: user,
             },
             to: user.deviceToken,
         });

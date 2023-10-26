@@ -6,9 +6,9 @@ import { Provider } from 'react-redux';
 import { store } from './src/redux/store'
 import messaging from '@react-native-firebase/messaging';
 import notifee, { AndroidImportance, EventType } from '@notifee/react-native';
+import { navigate } from './src/App';
 
 async function onMessageReceived(message) {
-    console.log('KILL MODE NOTIFEE')
 
     // Request permissions (required for iOS)
     await notifee.requestPermission()
@@ -27,6 +27,7 @@ async function onMessageReceived(message) {
         title: message.data.title,
         body: message.data.body,
         subtitle: 'Chatify',
+        data: JSON.parse(message.data.data),
         android: {
             channelId,
             largeIcon: message.data.avatar,
@@ -38,24 +39,24 @@ async function onMessageReceived(message) {
                 launchActivity: 'default',
             },
             actions: [
-                {
-                    title: 'Replay',
-                    icon: 'https://my-cdn.com/icons/open-chat.png',
-                    pressAction: {
-                        id: 'message-replay',
-                    },
-                    input: {
-                        placeholder: 'Reply to Sarah...',
-                    },
-                },
-                {
-                    title: 'Open',
-                    icon: 'https://my-cdn.com/icons/open-chat.png',
-                    pressAction: {
-                        id: 'chat-open',
-                        launchActivity: 'default',
-                    },
-                },
+                // {
+                //     title: 'Replay',
+                //     icon: 'https://my-cdn.com/icons/open-chat.png',
+                //     pressAction: {
+                //         id: 'message-replay',
+                //     },
+                //     input: {
+                //         placeholder: 'Reply to Sarah...',
+                //     },
+                // },
+                // {
+                //     title: 'Open',
+                //     icon: 'https://my-cdn.com/icons/open-chat.png',
+                //     pressAction: {
+                //         id: 'chat-open',
+                //         launchActivity: 'default',
+                //     },
+                // },
             ],
         },
     });
@@ -64,6 +65,11 @@ async function onMessageReceived(message) {
 notifee.onForegroundEvent(({ type, detail }) => {
     const { notification, pressAction } = detail;
 
+    if (type === EventType.PRESS && pressAction.id == 'chat-open') {
+        console.log('Sended Data: ', notification);
+        navigate('Chat', notification.data)
+    }
+
     //Message Replay Handle
     if (type === EventType.ACTION_PRESS && pressAction.id == 'message-replay') {
         console.log('User pressed an action with the id: ', pressAction.id);
@@ -71,9 +77,9 @@ notifee.onForegroundEvent(({ type, detail }) => {
 
     //Chap Open Handle
     if (type === EventType.ACTION_PRESS && pressAction.id == 'chat-open') {
-        console.log('User pressed an action with the id: ', pressAction.id);
+        console.log('Sended Data: ', notification.data);
+        navigate('Chat', notification.data)
     }
-
 });
 
 messaging().onMessage(onMessageReceived);
