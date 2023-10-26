@@ -1,11 +1,12 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Image, ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
-import { GiftedChat, Bubble, InputToolbar, MessageContainer, Day } from 'react-native-gifted-chat'
+import { GiftedChat, Bubble, InputToolbar, MessageContainer, Day, Send } from 'react-native-gifted-chat'
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import axios from 'axios';
 import firestore from '@react-native-firebase/firestore';
 import { FIREBASE_SERVER_KEY } from '../../config';
 import Icon from 'react-native-vector-icons/Feather';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Chat = ({ route, navigation }: any) => {
 
@@ -161,6 +162,24 @@ const Chat = ({ route, navigation }: any) => {
                                 backgroundColor: 'white',
                             }}
                         />
+                    );
+                }}
+
+                // alwaysShowSend={true}
+                renderSend={(props) => {
+                    return (
+                        <View className='flex flex-row aling-center justify-center p-1'>
+                            {/* <View className='bg-green-600 rounded-full p-2'>
+                                <MaterialCommunityIcon name="camera-image" size={25} color="#fff" />
+                            </View> */}
+                            <Send {...props} containerStyle={{justifyContent: 'center'}}>
+                                <View className=' rounded-full'>
+                                    <MaterialCommunityIcon 
+                                        name="send-circle" size={45} color="#1fa33c"
+                                    />
+                                </View>
+                            </Send>
+                        </View>
                     );
                 }}
 
