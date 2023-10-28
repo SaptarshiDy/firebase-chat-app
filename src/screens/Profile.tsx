@@ -1,10 +1,12 @@
 import React from 'react';
-import { Image, View, Text } from 'react-native';
+import { Image, View, Text, Pressable } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { logout } from '../redux/slices/auth';
 
 const Profile = () => {
     const auth = useAppSelector(state => state.auth);
+    const dispatch = useAppDispatch();
 
     return (
         <View className='p-4'>
@@ -26,9 +28,17 @@ const Profile = () => {
                     <Text className='text-lg'>{auth.user.email}</Text>
                 </View>
             </View>
-            <View className='flex gap-y-4 shadow-lg bg-blue-200 rounded-b-lg pb-4 mt-4'>
 
-            </View>
+            <Pressable 
+                onPress={() => {
+                    dispatch(logout());
+                }}
+                className='flex gap-y-4 shadow-lg bg-red-200 pb-4 mt-4 rounded-b-lg'
+            >
+                <Text className='text-center text-base font-bold'>
+                    Logout Profile
+                </Text>
+            </Pressable>
         </View>
     );
 }
