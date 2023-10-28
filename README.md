@@ -4,13 +4,13 @@ Internally, we use RN Firebase, Gifted Chat, and Notifee to streamline our proce
 
 ### Application Screenshots
 
-| Image 1               | Image 2               | Image 3               |
+| Splash               | Login               | Chats               |
 |-----------------------|-----------------------|-----------------------|
-| ![firebase chat application](https://img.playbook.com/2oDBWUVxPoQi3TYf--KLptnkQV2p6KcEfdYXesDYd5U/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzg1MzQ4YmVl/LWM5OTMtNGNmNC04/ZWUyLTRiNTBiMGU2/NTk2OQ)  | ![firebase chat application](https://img.playbook.com/9kzEt3m8Wl3xJWfGFcH19h02Jvdl14U4eFD9AuZIUiE/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzRiNWIzNjAz/LTIxMjgtNGRjNy05/MmM5LTA3ODEwOTcy/M2FjNw)  | ![firebase chat application](https://img.playbook.com/Ian1_dDMHO3BsWNVi86bUpWBHUW-WtemNzJij3RzPpI/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzMwMzQ4ZDc2/LTg1MDctNGE0ZS1i/YTRmLWEzNjE5M2M5/Y2YwMg)  |
+| ![Splash](https://img.playbook.com/2oDBWUVxPoQi3TYf--KLptnkQV2p6KcEfdYXesDYd5U/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzg1MzQ4YmVl/LWM5OTMtNGNmNC04/ZWUyLTRiNTBiMGU2/NTk2OQ)  | ![Login](https://img.playbook.com/9kzEt3m8Wl3xJWfGFcH19h02Jvdl14U4eFD9AuZIUiE/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzRiNWIzNjAz/LTIxMjgtNGRjNy05/MmM5LTA3ODEwOTcy/M2FjNw)  | ![Chats](https://img.playbook.com/Ian1_dDMHO3BsWNVi86bUpWBHUW-WtemNzJij3RzPpI/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzMwMzQ4ZDc2/LTg1MDctNGE0ZS1i/YTRmLWEzNjE5M2M5/Y2YwMg)  |
 
-| Image 4               | Image 5               | Image 6               |
+| Profile               | Chatting               | Notification               |
 |-----------------------|-----------------------|-----------------------|
-| ![firebase chat application](https://img.playbook.com/XTGV-QW5bwJfcbRpsrOCQ9drMiapIdm3z3_q00TkSd8/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzhjZTAxNWEx/LWE0ZWMtNDU3ZS1h/ZmZhLTkwOGQzOWIz/MzdlYQ)  | ![firebase chat application](https://img.playbook.com/rZukWgc4VTziAod52vgyaKVGwr1RDScqK83R2EDyfQU/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzE2YjQ0YWMz/LThiY2ItNGU4OS1i/MDNjLTE5NjdlNzli/NzZkZA)  | ![firebase chat application](https://img.playbook.com/LsnMV6a8rCQjTqgz7ciLcbg8ypklseeWwoy4OgNWdVw/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljL2YxZDg5MDIw/LTk1ZTYtNDA1OS1i/Y2Q3LWYwNGQzNzY5/ZjJlOA)  |
+| ![Profile](https://img.playbook.com/XTGV-QW5bwJfcbRpsrOCQ9drMiapIdm3z3_q00TkSd8/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzhjZTAxNWEx/LWE0ZWMtNDU3ZS1h/ZmZhLTkwOGQzOWIz/MzdlYQ)  | ![Chatting](https://img.playbook.com/rZukWgc4VTziAod52vgyaKVGwr1RDScqK83R2EDyfQU/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzE2YjQ0YWMz/LThiY2ItNGU4OS1i/MDNjLTE5NjdlNzli/NzZkZA)  | ![Notification](https://img.playbook.com/LsnMV6a8rCQjTqgz7ciLcbg8ypklseeWwoy4OgNWdVw/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljL2YxZDg5MDIw/LTk1ZTYtNDA1OS1i/Y2Q3LWYwNGQzNzY5/ZjJlOA)  |
 
 # Getting Started
 
