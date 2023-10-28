@@ -12,8 +12,8 @@ const AuthStack = () => {
             }}
         >
             <Stack.Screen 
-                name={AUTH_ROUTE.ChatList.name}
-                component={AUTH_ROUTE.ChatList.screen}
+                name={AUTH_ROUTE.Base.name}
+                component={AUTH_ROUTE.Base.screen}
             />
             <Stack.Screen 
                 name={AUTH_ROUTE.Chat.name}

@@ -47,6 +47,14 @@ export const signIn = createAsyncThunk('singIn', async (data: any) => {
     return data;
 })
 
+export const logout = createAsyncThunk('logout', async () => {
+    try {
+        await AsyncStorage.clear();
+    } catch (e) {
+        console.error(e)
+    }
+})
+
 export const authSlice = createSlice({
     name: 'auth',
     initialState : {
@@ -75,6 +83,11 @@ export const authSlice = createSlice({
                 state.isAuthenticated = false;
                 state.isLoading = false;
             }
+        })
+
+        builder.addCase(logout.fulfilled, (state, action) => {
+            state.user = null;
+            state.isAuthenticated = false;
         })
     }
 })

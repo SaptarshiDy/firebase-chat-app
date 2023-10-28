@@ -1,10 +1,12 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
-import { GiftedChat, Bubble, InputToolbar, MessageContainer, Day } from 'react-native-gifted-chat'
+import { Image, ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
+import { GiftedChat, Bubble, InputToolbar, MessageContainer, Day, Send } from 'react-native-gifted-chat'
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import axios from 'axios';
 import firestore from '@react-native-firebase/firestore';
 import { FIREBASE_SERVER_KEY } from '../../config';
+import Icon from 'react-native-vector-icons/Feather';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Chat = ({ route, navigation }: any) => {
 
@@ -64,6 +66,7 @@ const Chat = ({ route, navigation }: any) => {
                 title: data.username,
                 body: data.message,
                 avatar: data.image,
+                data: auth,
             },
             to: user.deviceToken,
         });
@@ -72,70 +75,115 @@ const Chat = ({ route, navigation }: any) => {
             url: 'https://fcm.googleapis.com/fcm/send',
             headers: {
                 Authorization:
-                    'key='+FIREBASE_SERVER_KEY,
-                    'Content-Type': 'application/json',
+                    'key=' + FIREBASE_SERVER_KEY,
+                'Content-Type': 'application/json',
             },
             data: data,
         };
 
         await axios(config)
-        .then(function (response) {
-            // console.warn(JSON.stringify(response.data));
-        })
-        .catch(function (error) {
-            console.warn(error);
-        });
+            .then(function (response) {
+                // console.warn(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.warn(error);
+            });
 
     }
 
     return (
+        <View className='flex-1'>
+            <View className='flex flex-row items-center shadow p-2 gap-x-2 bg-white'>
+                <View className='mb-0'>
+                    <Pressable
+                        onPress={() => {
+                            navigation.goBack();
+                        }}
+                    >
+                        <Icon name="arrow-left" size={30} color="#900" />
+                    </Pressable>
+                </View>
+                <View className='border rounded-full'>
+                    <Image
+                        style={{
+                            width: 30,
+                            height: 30,
+                            borderRadius: 50,
+                        }}
+                        source={{
+                            uri: user.photo,
+                        }}
+                    />
+                </View>
+                <Text className='text-lg font-medium'>
+                    {user.name}
+                </Text>
+            </View>
 
-        <GiftedChat
-            messages={messages}
-            onSend={messages => onSend(messages)}
-            user={{
-                _id: auth.user.id,
-                name: auth.user.name,
-                avatar: auth.user.photo,
-            }}
-            isLoadingEarlier={true}
+            <GiftedChat
+                messages={messages}
+                onSend={messages => onSend(messages)}
+                user={{
+                    _id: auth.user.id,
+                    name: auth.user.name,
+                    avatar: auth.user.photo,
+                }}
+                isLoadingEarlier={true}
 
-            renderChatEmpty={() => {
-                return (
-                    <View className='flex justify-center item-center h-screen'>
-                        <Text className='text-center rotate-180'>
-                            No Message Found !
-                        </Text>
-                    </View>
-                );
-            }}
+                renderChatEmpty={() => {
+                    return (
+                        <View className='flex justify-center item-center h-screen'>
+                            <Text className='text-center rotate-180'>
+                                No Message Found !
+                            </Text>
+                        </View>
+                    );
+                }}
 
-            renderAvatarOnTop={true}
+                renderAvatarOnTop={true}
 
-            renderBubble={(props) => {
-                return (
-                    <Bubble
-                        {...props}
-                        wrapperStyle={{
-                            left: {
+                renderBubble={(props) => {
+                    return (
+                        <Bubble
+                            {...props}
+                            wrapperStyle={{
+                                left: {
+                                    backgroundColor: 'white',
+                                },
+                            }}
+                        />
+                    );
+                }}
+                renderInputToolbar={(props) => {
+                    return (
+                        <InputToolbar
+                            {...props}
+                            containerStyle={{
                                 backgroundColor: 'white',
-                            },
-                        }}
-                    />
-                );
-            }}
-            renderInputToolbar={(props) => {
-                return (
-                    <InputToolbar
-                        {...props}
-                        containerStyle={{
-                            backgroundColor: 'white',
-                        }}
-                    />
-                );
-            }}
+                            }}
+                        />
+                    );
+                }}
 
-        />
+                // alwaysShowSend={true}
+                renderSend={(props) => {
+                    return (
+                        <View className='flex flex-row aling-center justify-center p-1'>
+                            {/* <View className='bg-green-600 rounded-full p-2'>
+                                <MaterialCommunityIcon name="camera-image" size={25} color="#fff" />
+                            </View> */}
+                            <Send {...props} containerStyle={{justifyContent: 'center'}}>
+                                <View className=' rounded-full'>
+                                    <MaterialCommunityIcon 
+                                        name="send-circle" size={45} color="#1fa33c"
+                                    />
+                                </View>
+                            </Send>
+                        </View>
+                    );
+                }}
+            />
+        </View>
     );
 }
 
