@@ -34,9 +34,9 @@ const ChatList = ({ navigation }: any) => {
                                             navigation.navigate('Chat', { user: user });
                                         }}
                                     >
-                                        <View className='flex flex-row items-center p-4 border-2 border-rose-400 rounded mb-4'>
+                                        <View className='flex flex-row items-center p-4 shadow-md border border-gray-300 bg-white rounded mb-4'>
                                             <View
-                                                className='rounded-full border-2 border-rose-400 p-1'
+                                                className='rounded-full border border-rose-400 p-1'
                                             >
                                                 <Image
                                                     style={{
