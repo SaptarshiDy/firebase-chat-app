@@ -66,7 +66,7 @@ const Chat = ({ route, navigation }: any) => {
                 title: data.username,
                 body: data.message,
                 avatar: data.image,
-                data: user,
+                data: auth,
             },
             to: user.deviceToken,
         });
@@ -182,7 +182,6 @@ const Chat = ({ route, navigation }: any) => {
                         </View>
                     );
                 }}
-
             />
         </View>
     );
