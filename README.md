@@ -1,3 +1,17 @@
+# React Native Firebase Chat Application
+
+Internally, we use RN Firebase, Gifted Chat, and Notifee to streamline our processes.
+
+### Application Screenshots
+
+| Image 1               | Image 2               | Image 3               |
+|-----------------------|-----------------------|-----------------------|
+| ![firebase chat application](./screenshots/1.png)  | ![firebase chat application](./screenshots/2.png)  | ![firebase chat application](./screenshots/3.png)  |
+
+| Image 4               | Image 5               | Image 6               |
+|-----------------------|-----------------------|-----------------------|
+| ![firebase chat application](./screenshots/4.png)  | ![firebase chat application](./screenshots/5.png)  | ![firebase chat application](./screenshots/6.png)  |
+
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
